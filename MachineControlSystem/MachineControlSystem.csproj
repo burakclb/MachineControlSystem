@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Controllers\ConveyorController.cs" />
+    <Compile Include="Controllers\InductionCooker.cs" />
+    <Compile Include="Controllers\MotorController.cs" />
+    <Compile Include="Controllers\PastaController.cs" />
+    <Compile Include="Controllers\SauceController.cs" />
+    <Compile Include="Controllers\SensorController.cs" />
+    <Compile Include="Controllers\TubeController.cs" />
+    <Compile Include="Models\Motor.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Sauce.cs" />
+    <Compile Include="Models\Sensor.cs" />
+    <Compile Include="Models\Tube.cs" />
+    <Compile Include="Services\OrderProcessor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Models\Microwave.cs" />
+    <Compile Include="Controllers\CoolerController.cs" />
+    <Compile Include="Models\Cooler.cs" />
+    <Compile Include="Models\PortionHeatingContainer.cs" />
+    <Compile Include="Controllers\PortionHeatingController.cs" />
+  </ItemGroup>
+
+</Project>

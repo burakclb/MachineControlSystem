@@ -13,7 +13,7 @@ namespace MachineControlSystem
             // Motor ve sensör kontrolleri oluşturuluyor
             SensorController sensorController = new SensorController();
             MotorController motorController = new MotorController();
-            ConveyorController conveyorController = new ConveyorController();
+            ConveyorController conveyorController = new ConveyorController(sensorController, motorController);
             TubeController tubeController = new TubeController(motorController, sensorController);
             SauceController sauceController = new SauceController(motorController, sensorController);
             OrderProcessor orderProcessor = new OrderProcessor(sensorController);
@@ -36,11 +36,11 @@ namespace MachineControlSystem
             };
 
             // İşlem başlatma
-            conveyorController.StartConveyor();
+            conveyorController.StartConveyor().Wait();
 
             foreach (var item in order.Items)
             {
-                tubeController.DispenseProduct(int.Parse(item.TubeId), item.Amount * 60); // Örneğin 60 gram olarak belirledik
+                tubeController.DispenseProduct(item.TubeId, item.Amount * 60); // Örneğin 60 gram olarak belirledik
             }
 
             foreach (var sauce in order.Sauces)
@@ -48,7 +48,7 @@ namespace MachineControlSystem
                 sauceController.DispenseSauce(int.Parse(sauce.Id), sauce.Amount * 45); // Örneğin 45 ml olarak belirledik
             }
 
-            conveyorController.StopConveyor();
+            conveyorController.StopConveyor().Wait();
 
             Console.WriteLine("Sipariş işlendi.");
         }

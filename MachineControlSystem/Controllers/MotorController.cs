@@ -4,10 +4,19 @@ namespace MachineControlSystem.Controllers
 {
     public class MotorController
     {
-        public void ActivateMotor(int motorId, int grams)
+        public void StartMotor()
         {
-            // Motoru aktifleştirme işlemi
-            Console.WriteLine($"{motorId} motoru {grams} gram için aktifleştirildi.");
+            Console.WriteLine("Motor çalıştırıldı.");
+        }
+
+        public void StopMotor()
+        {
+            Console.WriteLine("Motor durduruldu.");
+        }
+
+        public void ActivateMotor(string motorId, int grams)
+        {
+            Console.WriteLine($"Motor {motorId} {grams} gram için aktifleştirildi.");
         }
     }
 }
